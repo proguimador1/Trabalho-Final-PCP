@@ -22,9 +22,10 @@ class Filosofo():
 mutex = threading.Lock()
 
 def jantar(i, filosofo:Filosofo):
+    counter = 0
     while filosofo.get_refeicoes() < 5:
         filosofo.set_state('faminto')
-        
+        print(f'---Iteração {...}---')
         mutex.acquire()
         filosofo.set_state('comendo')
         filosofo.inc_refeicoes()
@@ -32,7 +33,7 @@ def jantar(i, filosofo:Filosofo):
         mutex.release()
         
         filosofo.set_state('pensando')
-        
+        counter += 1
         
         time.sleep(5)
 
