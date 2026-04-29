@@ -1,6 +1,16 @@
 import threading
 import time
 
+def create_forks(matrix):
+    forks = {}
+    for linha in matrix:
+        i = matrix.index(linha)
+        for element in linha:
+            j = linha.index(element)
+            if element and not (j,i) in forks:
+                forks[(i,j)] = threading.Lock()
+    return forks
+
 class Filosofo():
     def __init__(self, ID):
         self.ID = ID
@@ -37,7 +47,13 @@ def jantar(i, filosofo:Filosofo):
         
         time.sleep(5)
 
-filosofos = [Filosofo(id) for id in range(1,6)]
+matrix = []
 
-for i, filosofo in enumerate(filosofos):
-    threading.Thread(target=jantar, args=(i, filosofo)).start()
+with open('dinner_graph.txt', 'r') as file:
+    for i in range(5):
+        matrix.append(file.readline())
+
+forks = create_forks(matrix)
+
+#for i, filosofo in enumerate(filosofos):
+    #threading.Thread(target=jantar, args=(i, filosofo)).start()
