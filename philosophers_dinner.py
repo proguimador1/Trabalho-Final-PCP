@@ -3,20 +3,28 @@ import time
 
 def create_forks(matrix):
     forks = {}
+    arestas = []
     for linha in matrix:
         i = matrix.index(linha)
         for element in linha:
             j = linha.index(element)
             if element and not (j,i) in forks:
                 forks[(i,j)] = threading.Lock()
-    return forks
+                arestas.append((i,j))
+    return forks, arestas
 
 class Filosofo():
     def __init__(self, ID):
         self.ID = ID
         self.state = 'pensando'
         self.refeicoes = 0
-        
+
+    def set_left_fork(self, fork):
+        self.left_fork = fork
+
+    def set_right_fork(self, fork):
+        self.right_fork = fork
+
     def set_state(self, state):
         self.state = state
     
@@ -26,26 +34,16 @@ class Filosofo():
     def get_state(self):
         return self.state
     
+    def get_ID(self):
+        return self.ID
+    
     def get_refeicoes(self):
         return self.refeicoes
     
 mutex = threading.Lock()
 
-def jantar(i, filosofo:Filosofo):
-    counter = 0
-    while filosofo.get_refeicoes() < 5:
-        filosofo.set_state('faminto')
-        print(f'---Iteração {...}---')
-        mutex.acquire()
-        filosofo.set_state('comendo')
-        filosofo.inc_refeicoes()
-        print(f'Filosofo {i} comeu')
-        mutex.release()
-        
-        filosofo.set_state('pensando')
-        counter += 1
-        
-        time.sleep(5)
+def jantar(filosofo:Filosofo, mutex):
+    ...
 
 matrix = []
 
@@ -53,7 +51,15 @@ with open('dinner_graph.txt', 'r') as file:
     for i in range(5):
         matrix.append(file.readline())
 
-forks = create_forks(matrix)
+forks, arestas = create_forks(matrix)
 
-#for i, filosofo in enumerate(filosofos):
-    #threading.Thread(target=jantar, args=(i, filosofo)).start()
+filosofos = [Filosofo(ID) for ID in range(1,6)]
+
+for i in range(len(arestas)):
+    right = arestas[i]
+    left = arestas[-1-i]
+    filosofos[i].set_right_fork(forks[right])
+    filosofos[i].set_left_fork(forks[left])
+
+for filosofo in filosofos:
+    threading.Thread(target=jantar, args=(filosofo.get_ID(), filosofo)).start()
