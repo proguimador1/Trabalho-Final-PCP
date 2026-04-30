@@ -42,7 +42,7 @@ class Filosofo():
     
 mutex = threading.Lock()
 
-def jantar(filosofo:Filosofo, mutex):
+def jantar(id, filosofo:Filosofo, mutex):
     ...
 
 matrix = []
@@ -56,8 +56,8 @@ forks, arestas = create_forks(matrix)
 filosofos = [Filosofo(ID) for ID in range(1,6)]
 
 for i in range(len(arestas)):
-    right = arestas[i]
-    left = arestas[-1-i]
+    right = arestas[i-1]
+    left = arestas[i]
     filosofos[i].set_right_fork(forks[right])
     filosofos[i].set_left_fork(forks[left])
 
