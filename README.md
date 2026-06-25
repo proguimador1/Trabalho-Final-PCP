@@ -242,6 +242,10 @@ Ocorre quando um filósofo nunca consegue beber, apesar de não estar em deadloc
 **Objetivo:** Implementar e comparar algoritmos de sincronização para o problema dos filósofos com garrafas em grafos.
 
 ## Autores
+- Guilherme Souto De Andrade
+- Joao Victor Dos Santos Sales
+- Maurílio Salvaterra Cordeiro Neto
+- Pedro Otávio De Sousa Bezerra
 
 Desenvolvido como trabalho final da disciplina de Programação Concorrente.
 
