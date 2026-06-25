@@ -209,10 +209,10 @@ Cada solução é avaliada por:
 
 | Solução | Complexidade | Garantia de Ausência de Deadlock | Overhead | Justiça |
 |---------|-------------|----------------------------------|----------|---------|
-| Numeração | O(E log E) | ✅ Sim | Baixo | Baixa |
-| Árbitro | O(1) | ✅ Sim | Médio | Média |
-| Chandy-Misra | O(E) | ✅ Sim | Alto | Alta |
-| Aleatoriedade | O(1) | ❌ Não* | Baixo | Alta |
+| Numeração | O(E log E) | Sim | Baixo | Baixa |
+| Árbitro | O(1) |  Sim | Médio | Média |
+| Chandy-Misra | O(E) |  Sim | Alto | Alta |
+| Aleatoriedade | O(1) |  Não* | Baixo | Alta |
 
 *Na prática, starvation é extremamente raro devido ao backoff exponencial.
 
@@ -238,7 +238,7 @@ Ocorre quando um filósofo nunca consegue beber, apesar de não estar em deadloc
 ## Trabalho Acadêmico
 
 **Disciplina:** Programação Concorrente  
-**Instituição:** Universidade Estadual do Ceará
+**Instituição:** Universidade Estadual do Ceará  
 **Objetivo:** Implementar e comparar algoritmos de sincronização para o problema dos filósofos com garrafas em grafos.
 
 ## Autores
