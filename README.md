@@ -34,9 +34,9 @@ Trabalho-Final-PCP/
 ├── solucao_chandy_misra.py    # Solução Chandy-Misra (algoritmo distribuído)
 ├── solucao_aleatoriedade.py   # Solução com backoff exponencial aleatório
 ├── relatorio.py               # Geração de relatórios comparativos
-├── arquivo_caso1.txt          # Caso de teste 1 (5 vértices, grafo ciclo)
-├── arquivo_caso2.txt          # Caso de teste 2 (12 vértices)
-├── arquivo_caso3.txt          # Caso de teste 3 (outro grafo)
+├── arquivo_caso1.txt          # Caso de teste 1 (5 vértices, 6 rodadas)
+├── arquivo_caso2.txt          # Caso de teste 2 (6 vértices, 6 rodadas)
+├── arquivo_caso3.txt          # Caso de teste 3 (12 vértices, 3 rodadas)
 └── arquivo_caso*_resultado.txt # Resultados gerados automaticamente
 ```
 
@@ -131,13 +131,13 @@ Trabalho-Final-PCP/
 ### Execução
 
 ```bash
-# Executar com caso de teste 1 (5 vértices, 3 rodadas)
+# Executar com caso de teste 1 (5 vértices, 6 rodadas)
 python main.py arquivo_caso1.txt
 
-# Executar com caso de teste 2 (12 vértices, 6 rodadas)
+# Executar com caso de teste 2 (6 vértices, 6 rodadas)
 python main.py arquivo_caso2.txt
 
-# Executar com caso de teste 3
+# Executar com caso de teste 3 (12 vértices, 3 rodadas)
 python main.py arquivo_caso3.txt
 ```
 
@@ -166,7 +166,7 @@ O programa gera:
 Exemplo de saída no console:
 ```
 ============================================================
-ARQUIVO: arquivo_caso1.txt | VÉRTICES: 5 | RODADAS: 3
+ARQUIVO: arquivo_caso1.txt | VÉRTICES: 5 | RODADAS: 6
 ============================================================
 
  Numeração
@@ -192,17 +192,17 @@ Cada solução é avaliada por:
 
 ### Caso 1 (`arquivo_caso1.txt`)
 - **5 vértices** (grafo ciclo/caminho)
-- **3 rodadas** por filósofo
+- **6 rodadas** por filósofo
 - Grafo esparso, baixo grau médio
 
 ### Caso 2 (`arquivo_caso2.txt`)
-- **12 vértices**
+- **6 vértices**
 - **6 rodadas** por filósofo
 - Grafo médio, complexidade moderada
 
 ### Caso 3 (`arquivo_caso3.txt`)
-- Configuração diferente de grafo
-- **6 rodadas** por filósofo
+- Configuração diferente de grafo (12 vértices)
+- **3 rodadas** por filósofo
 - Testa robustez em diferentes topologias
 
 ## Análise Comparativa
