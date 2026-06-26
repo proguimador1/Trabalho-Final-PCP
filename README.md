@@ -1,9 +1,10 @@
 # Trabalho Final de PCP
 
 Membros:
-- Pedro Otávio
-- Gulherme
-- JV
+- Pedro Otávio de Sousa Bezerra
+- Guilherme Souto de Andrade
+- João Victor dos Santos Sales
+- Maurilio Salvaterra Cordeiro Neto
 
 ## Requisitos de Implementação: Problema do Bar dos Filósofos
 
