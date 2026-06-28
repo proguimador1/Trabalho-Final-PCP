@@ -200,6 +200,9 @@ Filósofo 0 começou a beber (esperou 0.00s)
 Exemplo de saída no arquivo:
 
 
+### Exemplo de Saída no Arquivo
+
+```
 ============================================================
 ARQUIVO: arquivo_caso1.txt | VÉRTICES: 5 | RODADAS: 6
 ============================================================
@@ -217,7 +220,13 @@ Filósofo 0 (grau 2):
   Tempo com sede (espera): 2.49s
   Tempo bebendo: 6.00s
   Tempo médio de espera: 0.41s
-...
+
+Filósofo 1 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.08s
+  Tempo com sede (espera): 4.18s
+  Tempo bebendo: 6.00s
+  Tempo médio de espera: 0.70s
 
 ============================================================
 RESUMO COMPARATIVO
@@ -228,6 +237,7 @@ Numeração            18.49           0.70            0.884      36.2
 Árbitro              16.24           0.51            0.934      26.6
 Chandy-Misra         17.29           0.65            0.968      18.0
 Aleatoriedade        22.93           1.29            0.958      20.9
+```
 
 ## Resultados e Métricas
 
