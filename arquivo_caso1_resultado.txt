@@ -1,249 +1,249 @@
 ============================================================
-ARQUIVO: arquivo_caso1.txt | VERTICES: 5 | RODADAS: 6
+ARQUIVO: arquivo_caso1.txt | VÉRTICES: 5 | RODADAS: 6
 ============================================================
 
-SOLUCAO: Numera��o
+SOLUÇÃO: Numeração
 ------------------------------------------------------------
-Tempo total de execu��o: 16.93 segundos
-Media de espera geral: 0.46s
+Tempo total de execução: 18.49 segundos
+Média de espera geral: 0.70s
 
-Detalhes por filosofo:
+Detalhes por filósofo:
 ------------------------------------------------------------
-Filosofo 0 (grau 2):
+Filósofo 0 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.13s
-  Tempo com sede (espera): 3.78s
+  Tempo tranquilo: 6.31s
+  Tempo com sede (espera): 5.16s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.63s
+  Tempo médio de espera: 0.86s
 
-Filosofo 1 (grau 2):
+Filósofo 1 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.68s
-  Tempo com sede (espera): 4.23s
+  Tempo tranquilo: 5.99s
+  Tempo com sede (espera): 6.48s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.71s
+  Tempo médio de espera: 1.08s
 
-Filosofo 2 (grau 2):
+Filósofo 2 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.45s
-  Tempo com sede (espera): 1.46s
+  Tempo tranquilo: 3.56s
+  Tempo com sede (espera): 4.31s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.24s
+  Tempo médio de espera: 0.72s
 
-Filosofo 3 (grau 2):
+Filósofo 3 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.46s
-  Tempo com sede (espera): 2.70s
+  Tempo tranquilo: 7.60s
+  Tempo com sede (espera): 2.15s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.45s
+  Tempo médio de espera: 0.36s
 
-Filosofo 4 (grau 2):
+Filósofo 4 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 9.28s
-  Tempo com sede (espera): 1.63s
+  Tempo tranquilo: 2.84s
+  Tempo com sede (espera): 3.03s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.27s
+  Tempo médio de espera: 0.51s
 
 ============================================================
-ANALISE DE STARVATION
+ANÁLISE DE STARVATION
 ============================================================
 
-Filosofos com grau 2 (5 filosofos):
+Filósofos com grau 2 (5 filósofos):
 ----------------------------------------
-  Tempos de espera: ['0.63', '0.71', '0.24', '0.45', '0.27']
-  Media: 0.46s
-  Desvio padrao: 0.19s
-  Coeficiente de Variacao (CV): 40.3%
-  Indice de Jain: 0.860 (1 = perfeito)
-  Variacao: 0.24s - 0.71s
-  Equidade moderada (possivel starvation leve)
+  Tempos de espera: ['0.86', '1.08', '0.72', '0.36', '0.51']
+  Média: 0.70s
+  Desvio padrão: 0.25s
+  Coeficiente de Variação (CV): 36.2%
+  Índice de Jain: 0.884
+  Variação: 0.36s - 1.08s
+  Interpretação: Jain 0.884 - Moderado
 
 
 ============================================================
 
-SOLUCAO: �rbitro
+SOLUÇÃO: Árbitro
 ------------------------------------------------------------
-Tempo total de execu��o: 16.93 segundos
-Media de espera geral: 0.74s
+Tempo total de execução: 16.24 segundos
+Média de espera geral: 0.51s
 
-Detalhes por filosofo:
+Detalhes por filósofo:
 ------------------------------------------------------------
-Filosofo 0 (grau 2):
+Filósofo 0 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 4.74s
-  Tempo com sede (espera): 3.77s
+  Tempo tranquilo: 5.14s
+  Tempo com sede (espera): 4.09s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.63s
+  Tempo médio de espera: 0.68s
 
-Filosofo 1 (grau 2):
+Filósofo 1 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 5.78s
-  Tempo com sede (espera): 3.74s
+  Tempo tranquilo: 5.23s
+  Tempo com sede (espera): 3.00s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.62s
+  Tempo médio de espera: 0.50s
 
-Filosofo 2 (grau 2):
+Filósofo 2 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.02s
-  Tempo com sede (espera): 4.90s
+  Tempo tranquilo: 8.40s
+  Tempo com sede (espera): 1.60s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.82s
+  Tempo médio de espera: 0.27s
 
-Filosofo 3 (grau 2):
+Filósofo 3 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 3.16s
-  Tempo com sede (espera): 6.15s
+  Tempo tranquilo: 5.85s
+  Tempo com sede (espera): 3.16s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 1.03s
+  Tempo médio de espera: 0.53s
 
-Filosofo 4 (grau 2):
+Filósofo 4 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.78s
-  Tempo com sede (espera): 3.53s
+  Tempo tranquilo: 6.88s
+  Tempo com sede (espera): 3.35s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.59s
+  Tempo médio de espera: 0.56s
 
 ============================================================
-ANALISE DE STARVATION
+ANÁLISE DE STARVATION
 ============================================================
 
-Filosofos com grau 2 (5 filosofos):
+Filósofos com grau 2 (5 filósofos):
 ----------------------------------------
-  Tempos de espera: ['0.63', '0.62', '0.82', '1.03', '0.59']
-  Media: 0.74s
-  Desvio padrao: 0.17s
-  Coeficiente de Variacao (CV): 22.4%
-  Indice de Jain: 0.952 (1 = perfeito)
-  Variacao: 0.59s - 1.03s
-  Excelente equidade (sem starvation)
+  Tempos de espera: ['0.68', '0.50', '0.27', '0.53', '0.56']
+  Média: 0.51s
+  Desvio padrão: 0.13s
+  Coeficiente de Variação (CV): 26.6%
+  Índice de Jain: 0.934
+  Variação: 0.27s - 0.68s
+  Interpretação: Jain 0.934 - Excelente
 
 
 ============================================================
 
-SOLUCAO: Chandy-Misra
+SOLUÇÃO: Chandy-Misra
 ------------------------------------------------------------
-Tempo total de execu��o: 18.24 segundos
-Media de espera geral: 0.77s
+Tempo total de execução: 17.29 segundos
+Média de espera geral: 0.65s
 
-Detalhes por filosofo:
+Detalhes por filósofo:
 ------------------------------------------------------------
-Filosofo 0 (grau 2):
+Filósofo 0 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 7.25s
-  Tempo com sede (espera): 4.97s
+  Tempo tranquilo: 8.32s
+  Tempo com sede (espera): 2.49s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.83s
+  Tempo médio de espera: 0.41s
 
-Filosofo 1 (grau 2):
+Filósofo 1 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 7.36s
-  Tempo com sede (espera): 3.58s
+  Tempo tranquilo: 5.08s
+  Tempo com sede (espera): 4.18s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.60s
+  Tempo médio de espera: 0.70s
 
-Filosofo 2 (grau 2):
+Filósofo 2 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 5.58s
-  Tempo com sede (espera): 4.36s
+  Tempo tranquilo: 6.00s
+  Tempo com sede (espera): 4.28s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.73s
+  Tempo médio de espera: 0.71s
 
-Filosofo 3 (grau 2):
+Filósofo 3 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 3.10s
-  Tempo com sede (espera): 5.83s
+  Tempo tranquilo: 7.06s
+  Tempo com sede (espera): 4.22s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.97s
+  Tempo médio de espera: 0.70s
 
-Filosofo 4 (grau 2):
+Filósofo 4 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.21s
-  Tempo com sede (espera): 4.39s
+  Tempo tranquilo: 5.52s
+  Tempo com sede (espera): 4.28s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.73s
+  Tempo médio de espera: 0.71s
 
 ============================================================
-ANALISE DE STARVATION
+ANÁLISE DE STARVATION
 ============================================================
 
-Filosofos com grau 2 (5 filosofos):
+Filósofos com grau 2 (5 filósofos):
 ----------------------------------------
-  Tempos de espera: ['0.83', '0.60', '0.73', '0.97', '0.73']
-  Media: 0.77s
-  Desvio padrao: 0.12s
-  Coeficiente de Variacao (CV): 16.2%
-  Indice de Jain: 0.975 (1 = perfeito)
-  Variacao: 0.60s - 0.97s
-  Excelente equidade (sem starvation)
+  Tempos de espera: ['0.41', '0.70', '0.71', '0.70', '0.71']
+  Média: 0.65s
+  Desvio padrão: 0.12s
+  Coeficiente de Variação (CV): 18.0%
+  Índice de Jain: 0.968
+  Variação: 0.41s - 0.71s
+  Interpretação: Jain 0.968 - Excelente
 
 
 ============================================================
 
-SOLUCAO: Aleatoriedade
+SOLUÇÃO: Aleatoriedade
 ------------------------------------------------------------
-Tempo total de execu��o: 22.21 segundos
-Media de espera geral: 1.20s
+Tempo total de execução: 22.93 segundos
+Média de espera geral: 1.29s
 
-Detalhes por filosofo:
+Detalhes por filósofo:
 ------------------------------------------------------------
-Filosofo 0 (grau 2):
+Filósofo 0 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.35s
-  Tempo com sede (espera): 3.92s
+  Tempo tranquilo: 6.63s
+  Tempo com sede (espera): 7.01s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.65s
+  Tempo médio de espera: 1.17s
 
-Filosofo 1 (grau 2):
+Filósofo 1 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 6.05s
-  Tempo com sede (espera): 10.15s
+  Tempo tranquilo: 3.99s
+  Tempo com sede (espera): 5.87s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 1.69s
+  Tempo médio de espera: 0.98s
 
-Filosofo 2 (grau 2):
+Filósofo 2 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 4.02s
-  Tempo com sede (espera): 5.13s
+  Tempo tranquilo: 5.11s
+  Tempo com sede (espera): 8.78s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 0.86s
+  Tempo médio de espera: 1.46s
 
-Filosofo 3 (grau 2):
+Filósofo 3 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 3.86s
-  Tempo com sede (espera): 10.01s
+  Tempo tranquilo: 5.68s
+  Tempo com sede (espera): 6.65s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 1.67s
+  Tempo médio de espera: 1.11s
 
-Filosofo 4 (grau 2):
+Filósofo 4 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 5.50s
-  Tempo com sede (espera): 6.92s
+  Tempo tranquilo: 6.58s
+  Tempo com sede (espera): 10.34s
   Tempo bebendo: 6.00s
-  Tempo m�dio de espera: 1.15s
+  Tempo médio de espera: 1.72s
 
 ============================================================
-ANALISE DE STARVATION
+ANÁLISE DE STARVATION
 ============================================================
 
-Filosofos com grau 2 (5 filosofos):
+Filósofos com grau 2 (5 filósofos):
 ----------------------------------------
-  Tempos de espera: ['0.65', '1.69', '0.86', '1.67', '1.15']
-  Media: 1.20s
-  Desvio padrao: 0.42s
-  Coeficiente de Variacao (CV): 34.8%
-  Indice de Jain: 0.892 (1 = perfeito)
-  Variacao: 0.65s - 1.69s
-  Equidade moderada (possivel starvation leve)
+  Tempos de espera: ['1.17', '0.98', '1.46', '1.11', '1.72']
+  Média: 1.29s
+  Desvio padrão: 0.27s
+  Coeficiente de Variação (CV): 20.9%
+  Índice de Jain: 0.958
+  Variação: 0.98s - 1.72s
+  Interpretação: Jain 0.958 - Excelente
 
 
 ============================================================
 
 ============================================================
-RESUMO COMPARATIVO ENTRE AS SOLUCOES
+RESUMO COMPARATIVO ENTRE AS SOLUÇÕES
 ============================================================
-Solucao              Tempo Total     Espera M�dia    Starvation          
+Solução              Tempo Total     Espera Média    Jain       CV(%)     
 --------------------------------------------------------------------------------
-Numera��o            16.93           0.46             Moderado           
-�rbitro              16.93           0.74             Excelente          
-Chandy-Misra         18.24           0.77             Excelente          
-Aleatoriedade        22.21           1.20             Moderado           
+Numeração            18.49           0.70            0.884      36.2      
+Árbitro              16.24           0.51            0.934      26.6      
+Chandy-Misra         17.29           0.65            0.968      18.0      
+Aleatoriedade        22.93           1.29            0.958      20.9      

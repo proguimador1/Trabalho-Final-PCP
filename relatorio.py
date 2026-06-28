@@ -9,13 +9,15 @@ class Relatorio:
         self.linhas = []
     
     def adicionar_solucao(self, nome, dados):
+        """Adiciona os dados de uma solução ao relatório."""
         self.resultados[nome] = dados
     
     def _add_linha(self, texto=""):
+        """Adiciona uma linha ao relatório."""
         self.linhas.append(texto)
     
     def _calcular_metricas_starvation(self, tempos):
-        """Calcula métricas para análise de starvation"""
+        """Calcula Índice de Jain, CV e desvio padrão para análise de starvation."""
         n = len(tempos)
         if n == 0:
             return None
@@ -44,40 +46,26 @@ class Relatorio:
             'variacao_abs': max(tempos) - min(tempos)
         }
     
-    def _interpretar_starvation(self, metricas):
-        """Interpreta as metricas de starvation"""
-        if metricas is None:
-            return "Sem dados"
-        
-        jain = metricas['jain']
-        
-        # Interpretação baseada no Índice de Jain
-        if jain >= 0.9:
-            return "Excelente equidade (sem starvation)"
-        elif jain >= 0.7:
-            return "Equidade moderada (possivel starvation leve)"
-        elif jain >= 0.5:
-            return "Baixa equidade (starvation provavel)"
-        else:
-            return "Equidade muito baixa (starvation severo!)"
     
     def _gerar_cabecalho(self):
+        """Gera cabeçalho do relatório."""
         self._add_linha("="*60)
-        self._add_linha(f"ARQUIVO: {self.nome_arquivo} | VERTICES: {self.grafo.num_vertices} | RODADAS: {self.rodadas}")
+        self._add_linha(f"ARQUIVO: {self.nome_arquivo} | VÉRTICES: {self.grafo.num_vertices} | RODADAS: {self.rodadas}")
         self._add_linha("="*60)
         self._add_linha()
     
     def _gerar_solucao(self, nome, dados):
-        self._add_linha(f"SOLUCAO: {nome}")
+        """Gera seção de uma solução com detalhes e análise de starvation."""
+        self._add_linha(f"SOLUÇÃO: {nome}")
         self._add_linha("-"*60)
         self._add_linha(f"Tempo total de execução: {dados['tempo_total']:.2f} segundos")
-        self._add_linha(f"Media de espera geral: {dados['media_espera']:.2f}s")
+        self._add_linha(f"Média de espera geral: {dados['media_espera']:.2f}s")
         self._add_linha()
         
-        self._add_linha("Detalhes por filosofo:")
+        self._add_linha("Detalhes por filósofo:")
         self._add_linha("-"*60)
         for id_f, info in dados['resultados'].items():
-            self._add_linha(f"Filosofo {id_f} (grau {info['grau']}):")
+            self._add_linha(f"Filósofo {id_f} (grau {info['grau']}):")
             self._add_linha(f"  Rodadas: {info['rodadas']}")
             self._add_linha(f"  Tempo tranquilo: {info['tempo_tranquilo']:.2f}s")
             self._add_linha(f"  Tempo com sede (espera): {info['tempo_com_sede']:.2f}s")
@@ -91,8 +79,9 @@ class Relatorio:
         self._add_linha()
     
     def _gerar_analise_starvation(self, dados):
+        """Agrupa filósofos por grau e analisa starvation com Jain e CV."""
         self._add_linha("="*60)
-        self._add_linha("ANALISE DE STARVATION")
+        self._add_linha("ANÁLISE DE STARVATION")
         self._add_linha("="*60)
         
         grupos = {}
@@ -106,30 +95,30 @@ class Relatorio:
             if len(tempos) > 1:
                 metricas = self._calcular_metricas_starvation(tempos)
                 
-                self._add_linha(f"\nFilosofos com grau {grau} ({len(tempos)} filosofos):")
+                self._add_linha(f"\nFilósofos com grau {grau} ({len(tempos)} filósofos):")
                 self._add_linha("-"*40)
                 self._add_linha(f"  Tempos de espera: {[f'{t:.2f}' for t in tempos]}")
-                self._add_linha(f"  Media: {metricas['media']:.2f}s")
-                self._add_linha(f"  Desvio padrao: {metricas['desvio_padrao']:.2f}s")
-                self._add_linha(f"  Coeficiente de Variacao (CV): {metricas['cv']:.1f}%")
-                self._add_linha(f"  Indice de Jain: {metricas['jain']:.3f} (1 = perfeito)")
-                self._add_linha(f"  Variacao: {metricas['min']:.2f}s - {metricas['max']:.2f}s")
-                self._add_linha(f"  {self._interpretar_starvation(metricas)}")
+                self._add_linha(f"  Média: {metricas['media']:.2f}s")
+                self._add_linha(f"  Desvio padrão: {metricas['desvio_padrao']:.2f}s")
+                self._add_linha(f"  Coeficiente de Variação (CV): {metricas['cv']:.1f}%")
+                self._add_linha(f"  Índice de Jain: {metricas['jain']:.3f}")
+                self._add_linha(f"  Variação: {metricas['min']:.2f}s - {metricas['max']:.2f}s")
             else:
-                self._add_linha(f"\nFilosofos com grau {grau}: apenas 1 filosofo (sem comparacao)")
+                self._add_linha(f"\nFilósofos com grau {grau}: apenas 1 filósofo (sem comparação)")
         
         self._add_linha()
     
     def _gerar_resumo(self):
+        """Gera tabela comparativa entre todas as soluções."""
         self._add_linha("="*60)
-        self._add_linha("RESUMO COMPARATIVO ENTRE AS SOLUCOES")
+        self._add_linha("RESUMO COMPARATIVO ENTRE AS SOLUÇÕES")
         self._add_linha("="*60)
-        self._add_linha(f"{'Solucao':<20} {'Tempo Total':<15} {'Espera Média':<15} {'Starvation':<20}")
+        self._add_linha(f"{'Solução':<20} {'Tempo Total':<15} {'Espera Média':<15} {'Jain':<10} {'CV(%)':<10}")
         self._add_linha("-"*80)
         
         for nome, dados in self.resultados.items():
-            # Pega a pior métrica de starvation entre os grupos
             pior_jain = 1.0
+            pior_cv = 0.0
             grupos = {}
             for id_f, info in dados['resultados'].items():
                 grau = info['grau']
@@ -140,21 +129,16 @@ class Relatorio:
             for grau, tempos in grupos.items():
                 if len(tempos) > 1:
                     metricas = self._calcular_metricas_starvation(tempos)
-                    if metricas and metricas['jain'] < pior_jain:
-                        pior_jain = metricas['jain']
+                    if metricas:
+                        if metricas['jain'] < pior_jain:
+                            pior_jain = metricas['jain']
+                        if metricas['cv'] > pior_cv:
+                            pior_cv = metricas['cv']
             
-            if pior_jain >= 0.9:
-                status = " Excelente"
-            elif pior_jain >= 0.7:
-                status = " Moderado"
-            elif pior_jain >= 0.5:
-                status = " Ruim"
-            else:
-                status = " Severo"
-            
-            self._add_linha(f"{nome:<20} {dados['tempo_total']:<15.2f} {dados['media_espera']:<15.2f} {status:<20}")
+            self._add_linha(f"{nome:<20} {dados['tempo_total']:<15.2f} {dados['media_espera']:<15.2f} {pior_jain:<10.3f} {pior_cv:<10.1f}")
     
     def gerar(self):
+        """Gera o relatório completo."""
         self._gerar_cabecalho()
         for nome, dados in self.resultados.items():
             self._gerar_solucao(nome, dados)
@@ -162,7 +146,8 @@ class Relatorio:
         return "\n".join(self.linhas)
     
     def salvar(self, arquivo_saida):
+        """Salva o relatório em um arquivo .txt."""
         conteudo = self.gerar()
-        with open(arquivo_saida, 'w') as f:
+        with open(arquivo_saida, 'w', encoding='utf-8') as f:
             f.write(conteudo)
         return arquivo_saida

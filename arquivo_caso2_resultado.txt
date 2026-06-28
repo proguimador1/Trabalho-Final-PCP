@@ -1,284 +1,325 @@
 ============================================================
-ARQUIVO: arquivo_caso2.txt | V…RTICES: 6 | RODADAS: 6
+ARQUIVO: arquivo_caso2.txt | V√âRTICES: 6 | RODADAS: 6
 ============================================================
 
-SOLU«√O: NumeraÁ„o
+SOLU√á√ÉO: Numera√ß√£o
 ------------------------------------------------------------
-Tempo total de execuÁ„o: 20.77 segundos
-MÈdia de espera: 0.86s
+Tempo total de execu√ß√£o: 20.51 segundos
+M√©dia de espera geral: 0.86s
 
-Detalhes por filÛsofo:
+Detalhes por fil√≥sofo:
 ------------------------------------------------------------
-FilÛsofo 0 (grau 2):
+Fil√≥sofo 0 (grau 2):
   Rodadas: 6
-  Tempo tranquilo: 5.77s
+  Tempo tranquilo: 6.42s
+  Tempo com sede (espera): 8.08s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 1.35s
+
+Fil√≥sofo 1 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.29s
+  Tempo com sede (espera): 6.92s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 1.15s
+
+Fil√≥sofo 2 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 7.82s
+  Tempo com sede (espera): 5.39s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.90s
+
+Fil√≥sofo 3 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 5.98s
+  Tempo com sede (espera): 6.23s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 1.04s
+
+Fil√≥sofo 4 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 7.30s
+  Tempo com sede (espera): 1.91s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.32s
+
+Fil√≥sofo 5 (grau 4):
+  Rodadas: 6
+  Tempo tranquilo: 11.65s
+  Tempo com sede (espera): 2.30s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.38s
+
+============================================================
+AN√ÅLISE DE STARVATION
+============================================================
+
+Fil√≥sofos com grau 2 (3 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['1.35', '1.15', '0.32']
+  M√©dia: 0.94s
+  Desvio padr√£o: 0.45s
+  Coeficiente de Varia√ß√£o (CV): 47.5%
+  √çndice de Jain: 0.816
+  Varia√ß√£o: 0.32s - 1.35s
+  Interpreta√ß√£o: Jain 0.816 - Moderado
+
+Fil√≥sofos com grau 3 (2 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.90', '1.04']
+  M√©dia: 0.97s
+  Desvio padr√£o: 0.07s
+  Coeficiente de Varia√ß√£o (CV): 7.2%
+  √çndice de Jain: 0.995
+  Varia√ß√£o: 0.90s - 1.04s
+  Interpreta√ß√£o: Jain 0.995 - Excelente
+
+Fil√≥sofos com grau 4: apenas 1 fil√≥sofo (sem compara√ß√£o)
+
+
+============================================================
+
+SOLU√á√ÉO: √Årbitro
+------------------------------------------------------------
+Tempo total de execu√ß√£o: 21.46 segundos
+M√©dia de espera geral: 0.61s
+
+Detalhes por fil√≥sofo:
+------------------------------------------------------------
+Fil√≥sofo 0 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.84s
+  Tempo com sede (espera): 4.21s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.70s
+
+Fil√≥sofo 1 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 6.61s
+  Tempo com sede (espera): 2.22s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.37s
+
+Fil√≥sofo 2 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 8.88s
+  Tempo com sede (espera): 4.57s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.76s
+
+Fil√≥sofo 3 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 11.35s
+  Tempo com sede (espera): 4.09s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.68s
+
+Fil√≥sofo 4 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.41s
+  Tempo com sede (espera): 1.14s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.19s
+
+Fil√≥sofo 5 (grau 4):
+  Rodadas: 6
+  Tempo tranquilo: 8.58s
+  Tempo com sede (espera): 5.87s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.98s
+
+============================================================
+AN√ÅLISE DE STARVATION
+============================================================
+
+Fil√≥sofos com grau 2 (3 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.70', '0.37', '0.19']
+  M√©dia: 0.42s
+  Desvio padr√£o: 0.21s
+  Coeficiente de Varia√ß√£o (CV): 50.4%
+  √çndice de Jain: 0.798
+  Varia√ß√£o: 0.19s - 0.70s
+  Interpreta√ß√£o: Jain 0.798 - Moderado
+
+Fil√≥sofos com grau 3 (2 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.76', '0.68']
+  M√©dia: 0.72s
+  Desvio padr√£o: 0.04s
+  Coeficiente de Varia√ß√£o (CV): 5.5%
+  √çndice de Jain: 0.997
+  Varia√ß√£o: 0.68s - 0.76s
+  Interpreta√ß√£o: Jain 0.997 - Excelente
+
+Fil√≥sofos com grau 4: apenas 1 fil√≥sofo (sem compara√ß√£o)
+
+
+============================================================
+
+SOLU√á√ÉO: Chandy-Misra
+------------------------------------------------------------
+Tempo total de execu√ß√£o: 20.76 segundos
+M√©dia de espera geral: 0.41s
+
+Detalhes por fil√≥sofo:
+------------------------------------------------------------
+Fil√≥sofo 0 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.13s
+  Tempo com sede (espera): 3.01s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.50s
+
+Fil√≥sofo 1 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.93s
+  Tempo com sede (espera): 3.33s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.55s
+
+Fil√≥sofo 2 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 12.58s
+  Tempo com sede (espera): 2.01s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.34s
+
+Fil√≥sofo 3 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 12.18s
+  Tempo com sede (espera): 1.41s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.23s
+
+Fil√≥sofo 4 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 7.51s
+  Tempo com sede (espera): 3.63s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.61s
+
+Fil√≥sofo 5 (grau 4):
+  Rodadas: 6
+  Tempo tranquilo: 13.26s
+  Tempo com sede (espera): 1.49s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.25s
+
+============================================================
+AN√ÅLISE DE STARVATION
+============================================================
+
+Fil√≥sofos com grau 2 (3 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.50', '0.55', '0.61']
+  M√©dia: 0.55s
+  Desvio padr√£o: 0.04s
+  Coeficiente de Varia√ß√£o (CV): 7.7%
+  √çndice de Jain: 0.994
+  Varia√ß√£o: 0.50s - 0.61s
+  Interpreta√ß√£o: Jain 0.994 - Excelente
+
+Fil√≥sofos com grau 3 (2 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.34', '0.23']
+  M√©dia: 0.28s
+  Desvio padr√£o: 0.05s
+  Coeficiente de Varia√ß√£o (CV): 17.7%
+  √çndice de Jain: 0.970
+  Varia√ß√£o: 0.23s - 0.34s
+  Interpreta√ß√£o: Jain 0.970 - Excelente
+
+Fil√≥sofos com grau 4: apenas 1 fil√≥sofo (sem compara√ß√£o)
+
+
+============================================================
+
+SOLU√á√ÉO: Aleatoriedade
+------------------------------------------------------------
+Tempo total de execu√ß√£o: 26.25 segundos
+M√©dia de espera geral: 1.03s
+
+Detalhes por fil√≥sofo:
+------------------------------------------------------------
+Fil√≥sofo 0 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 5.25s
+  Tempo com sede (espera): 5.57s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.93s
+
+Fil√≥sofo 1 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 7.67s
+  Tempo com sede (espera): 8.65s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 1.44s
+
+Fil√≥sofo 2 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 8.43s
+  Tempo com sede (espera): 3.35s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.56s
+
+Fil√≥sofo 3 (grau 3):
+  Rodadas: 6
+  Tempo tranquilo: 10.36s
+  Tempo com sede (espera): 9.87s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 1.65s
+
+Fil√≥sofo 4 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 4.86s
+  Tempo com sede (espera): 4.56s
+  Tempo bebendo: 6.00s
+  Tempo m√©dio de espera: 0.76s
+
+Fil√≥sofo 5 (grau 4):
+  Rodadas: 6
+  Tempo tranquilo: 13.76s
   Tempo com sede (espera): 4.96s
   Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.83s
+  Tempo m√©dio de espera: 0.83s
 
-FilÛsofo 1 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 5.15s
-  Tempo com sede (espera): 7.33s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 1.22s
+============================================================
+AN√ÅLISE DE STARVATION
+============================================================
 
-FilÛsofo 2 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 9.20s
-  Tempo com sede (espera): 4.19s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.70s
+Fil√≥sofos com grau 2 (3 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.93', '1.44', '0.76']
+  M√©dia: 1.04s
+  Desvio padr√£o: 0.29s
+  Coeficiente de Varia√ß√£o (CV): 27.8%
+  √çndice de Jain: 0.928
+  Varia√ß√£o: 0.76s - 1.44s
+  Interpreta√ß√£o: Jain 0.928 - Excelente
 
-FilÛsofo 3 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 7.74s
-  Tempo com sede (espera): 7.01s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 1.17s
+Fil√≥sofos com grau 3 (2 fil√≥sofos):
+----------------------------------------
+  Tempos de espera: ['0.56', '1.65']
+  M√©dia: 1.10s
+  Desvio padr√£o: 0.54s
+  Coeficiente de Varia√ß√£o (CV): 49.3%
+  √çndice de Jain: 0.805
+  Varia√ß√£o: 0.56s - 1.65s
+  Interpreta√ß√£o: Jain 0.805 - Moderado
 
-FilÛsofo 4 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 4.44s
-  Tempo com sede (espera): 4.29s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.72s
-
-FilÛsofo 5 (grau 4):
-  Rodadas: 6
-  Tempo tranquilo: 9.19s
-  Tempo com sede (espera): 3.20s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.53s
-
-An·lise de Starvation (filÛsofos com mesmo grau):
-------------------------------------------------------------
-FilÛsofos com grau 2:
-  Tempos de espera: ['0.83', '1.22', '0.72']
-  MÈdia: 0.92s
-  VariaÁ„o absoluta: 0.51s
-  VariaÁ„o relativa: 54.97%
- VariaÁ„o alta (starvation detectado!)
-
-FilÛsofos com grau 3:
-  Tempos de espera: ['0.70', '1.17']
-  MÈdia: 0.93s
-  VariaÁ„o absoluta: 0.47s
-  VariaÁ„o relativa: 50.33%
- VariaÁ„o alta (starvation detectado!)
+Fil√≥sofos com grau 4: apenas 1 fil√≥sofo (sem compara√ß√£o)
 
 
 ============================================================
 
-SOLU«√O: ¡rbitro
-------------------------------------------------------------
-Tempo total de execuÁ„o: 22.42 segundos
-MÈdia de espera: 0.38s
-
-Detalhes por filÛsofo:
-------------------------------------------------------------
-FilÛsofo 0 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 6.74s
-  Tempo com sede (espera): 1.04s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.17s
-
-FilÛsofo 1 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 7.92s
-  Tempo com sede (espera): 1.63s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.27s
-
-FilÛsofo 2 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 7.52s
-  Tempo com sede (espera): 1.03s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.17s
-
-FilÛsofo 3 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 7.92s
-  Tempo com sede (espera): 4.58s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.76s
-
-FilÛsofo 4 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 5.12s
-  Tempo com sede (espera): 1.95s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.32s
-
-FilÛsofo 5 (grau 4):
-  Rodadas: 6
-  Tempo tranquilo: 12.96s
-  Tempo com sede (espera): 3.45s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.57s
-
-An·lise de Starvation (filÛsofos com mesmo grau):
-------------------------------------------------------------
-FilÛsofos com grau 2:
-  Tempos de espera: ['0.17', '0.27', '0.32']
-  MÈdia: 0.26s
-  VariaÁ„o absoluta: 0.15s
-  VariaÁ„o relativa: 58.46%
- VariaÁ„o alta (starvation detectado!)
-
-FilÛsofos com grau 3:
-  Tempos de espera: ['0.17', '0.76']
-  MÈdia: 0.47s
-  VariaÁ„o absoluta: 0.59s
-  VariaÁ„o relativa: 126.38%
- VariaÁ„o alta (starvation detectado!)
-
-
 ============================================================
-
-SOLU«√O: Chandy-Misra
-------------------------------------------------------------
-Tempo total de execuÁ„o: 19.91 segundos
-MÈdia de espera: 0.42s
-
-Detalhes por filÛsofo:
-------------------------------------------------------------
-FilÛsofo 0 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 3.83s
-  Tempo com sede (espera): 3.57s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.60s
-
-FilÛsofo 1 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 8.48s
-  Tempo com sede (espera): 3.87s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.65s
-
-FilÛsofo 2 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 8.42s
-  Tempo com sede (espera): 2.93s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.49s
-
-FilÛsofo 3 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 10.55s
-  Tempo com sede (espera): 0.91s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.15s
-
-FilÛsofo 4 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 4.51s
-  Tempo com sede (espera): 0.28s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.05s
-
-FilÛsofo 5 (grau 4):
-  Rodadas: 6
-  Tempo tranquilo: 10.43s
-  Tempo com sede (espera): 3.47s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.58s
-
-An·lise de Starvation (filÛsofos com mesmo grau):
-------------------------------------------------------------
-FilÛsofos com grau 2:
-  Tempos de espera: ['0.60', '0.65', '0.05']
-  MÈdia: 0.43s
-  VariaÁ„o absoluta: 0.60s
-  VariaÁ„o relativa: 139.70%
- VariaÁ„o alta (starvation detectado!)
-
-FilÛsofos com grau 3:
-  Tempos de espera: ['0.49', '0.15']
-  MÈdia: 0.32s
-  VariaÁ„o absoluta: 0.34s
-  VariaÁ„o relativa: 105.57%
- VariaÁ„o alta (starvation detectado!)
-
-
+RESUMO COMPARATIVO ENTRE AS SOLU√á√ïES
 ============================================================
-
-SOLU«√O: Aleatoriedade
-------------------------------------------------------------
-Tempo total de execuÁ„o: 25.15 segundos
-MÈdia de espera: 0.78s
-
-Detalhes por filÛsofo:
-------------------------------------------------------------
-FilÛsofo 0 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 5.68s
-  Tempo com sede (espera): 3.44s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.57s
-
-FilÛsofo 1 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 5.43s
-  Tempo com sede (espera): 5.29s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.88s
-
-FilÛsofo 2 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 8.59s
-  Tempo com sede (espera): 3.99s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.67s
-
-FilÛsofo 3 (grau 3):
-  Rodadas: 6
-  Tempo tranquilo: 9.17s
-  Tempo com sede (espera): 4.64s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.77s
-
-FilÛsofo 4 (grau 2):
-  Rodadas: 6
-  Tempo tranquilo: 6.20s
-  Tempo com sede (espera): 2.04s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 0.34s
-
-FilÛsofo 5 (grau 4):
-  Rodadas: 6
-  Tempo tranquilo: 10.37s
-  Tempo com sede (espera): 8.77s
-  Tempo bebendo: 6.00s
-  Tempo mÈdio de espera: 1.46s
-
-An·lise de Starvation (filÛsofos com mesmo grau):
-------------------------------------------------------------
-FilÛsofos com grau 2:
-  Tempos de espera: ['0.57', '0.88', '0.34']
-  MÈdia: 0.60s
-  VariaÁ„o absoluta: 0.54s
-  VariaÁ„o relativa: 90.42%
- VariaÁ„o alta (starvation detectado!)
-
-FilÛsofos com grau 3:
-  Tempos de espera: ['0.67', '0.77']
-  MÈdia: 0.72s
-  VariaÁ„o absoluta: 0.11s
-  VariaÁ„o relativa: 15.07%
- Tempos equilibrados (sem starvation)
-
-
-============================================================
-
-RESUMO COMPARATIVO ENTRE AS SOLU«’ES
-============================================================
-SoluÁ„o              Tempo Total     Espera MÈdia   
-------------------------------------------------------------
-NumeraÁ„o            20.77           0.86           
-¡rbitro              22.42           0.38           
-Chandy-Misra         19.91           0.42           
-Aleatoriedade        25.15           0.78           
+Solu√ß√£o              Tempo Total     Espera M√©dia    Jain       CV(%)     
+--------------------------------------------------------------------------------
+Numera√ß√£o            20.51           0.86            0.816      47.5      
+√Årbitro              21.46           0.61            0.798      50.4      
+Chandy-Misra         20.76           0.41            0.970      17.7      
+Aleatoriedade        26.25           1.03            0.805      49.3      

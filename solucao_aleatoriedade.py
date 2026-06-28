@@ -7,8 +7,8 @@ class SolucaoAleatoriedade(Solucao):
         super().__init__(grafo, filosofos, rodadas_necessarias)
         
         # Fator de backoff inicial
-        self.backoff_min = 0.1
-        self.backoff_max = 1.0
+        self.backoff_min = 0.5
+        self.backoff_max = 2.0
     
     def ciclo_filosofo(self, filosofo):
         while self.executando and filosofo.rodadas_feitas < filosofo.rodadas_necessarias:

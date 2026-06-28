@@ -1,6 +1,8 @@
 import threading
 
 class Solucao:
+    """Classe base para todas as soluções do Bar dos Filósofos"""
+    
     def __init__(self, grafo, filosofos, rodadas_necessarias):
         self.grafo = grafo
         self.filosofos = filosofos

@@ -29,36 +29,38 @@ class SolucaoArbitro(Solucao):
             self.arbitro.acquire()
             print(f"Filósofo {filosofo.id} recebeu permissão do árbitro")
             
-            # 4. Tenta pegar garrafas
-            ids_garrafas = []
-            for vizinho in filosofo.garrafas_escolhidas:
-                id_aresta = self.grafo.get_id_aresta(filosofo.id, vizinho)
-                ids_garrafas.append(id_aresta)
-            
-            print(f" Filósofo {filosofo.id} tentando pegar garrafas: {ids_garrafas}")
-            
-            # Pega todas as garrafas (agora com permissão do árbitro)
-            for id_garrafa in ids_garrafas:
-                self.locks_garrafas[id_garrafa].acquire()
-                filosofo.garrafas_pegadas.append(id_garrafa)
-                print(f"Filósofo {filosofo.id} pegou garrafa {id_garrafa}")
-            
-            # 5. Registra tempo de espera
-            tempo_espera = time.time() - inicio_espera
-            filosofo.tempo_espera_total += tempo_espera
-            filosofo.tempo_com_sede += tempo_espera
-            
-            # 6. Beber
-            print(f"Filósofo {filosofo.id} começou a beber (esperou {tempo_espera:.2f}s)")
-            filosofo.beber()
-            
-            # 7. Liberar garrafas
-            print(f"Filósofo {filosofo.id} liberando garrafas {filosofo.garrafas_pegadas}")
-            for id_garrafa in filosofo.garrafas_pegadas:
-                self.locks_garrafas[id_garrafa].release()
-            
-            filosofo.garrafas_pegadas = []
-            
-            # 8. Libera árbitro
-            self.arbitro.release()
-            print(f"--- Filósofo {filosofo.id} completou {filosofo.rodadas_feitas}/{filosofo.rodadas_necessarias} rodadas ---")
+            try:
+                # 4. Tenta pegar garrafas
+                ids_garrafas = []
+                for vizinho in filosofo.garrafas_escolhidas:
+                    id_aresta = self.grafo.get_id_aresta(filosofo.id, vizinho)
+                    ids_garrafas.append(id_aresta)
+                
+                print(f" Filósofo {filosofo.id} tentando pegar garrafas: {ids_garrafas}")
+                
+                # Pega todas as garrafas (agora com permissão do árbitro)
+                for id_garrafa in ids_garrafas:
+                    self.locks_garrafas[id_garrafa].acquire()
+                    filosofo.garrafas_pegadas.append(id_garrafa)
+                    print(f"Filósofo {filosofo.id} pegou garrafa {id_garrafa}")
+                
+                # 5. Registra tempo de espera
+                tempo_espera = time.time() - inicio_espera
+                filosofo.tempo_espera_total += tempo_espera
+                filosofo.tempo_com_sede += tempo_espera
+                
+                # 6. Beber
+                print(f"Filósofo {filosofo.id} começou a beber (esperou {tempo_espera:.2f}s)")
+                filosofo.beber()
+                
+            finally:
+                # 7. Liberar garrafas (sempre executa, mesmo com exceção)
+                print(f"Filósofo {filosofo.id} liberando garrafas {filosofo.garrafas_pegadas}")
+                for id_garrafa in filosofo.garrafas_pegadas:
+                    self.locks_garrafas[id_garrafa].release()
+                
+                filosofo.garrafas_pegadas = []
+                
+                # 8. Libera árbitro (sempre executa, mesmo com exceção)
+                self.arbitro.release()
+                print(f"--- Filósofo {filosofo.id} completou {filosofo.rodadas_feitas}/{filosofo.rodadas_necessarias} rodadas ---")

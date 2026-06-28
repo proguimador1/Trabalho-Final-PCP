@@ -1,24 +1,27 @@
-# Trabalho Final PCP - Problema dos Filósofos com Garrafas
+# Trabalho Final PCP - Bar dos Filósofos
 
 ## Descrição
 
-Este projeto implementa uma variação do **Problema dos Filósofos** com garrafas, onde filósofos em um grafo precisam coordenar o acesso a garrafas compartilhadas. O objetivo é comparar diferentes algoritmos de sincronização concorrente para evitar deadlock e garantir acesso justo aos recursos.
+Este projeto implementa o **Bar dos Filósofos** (*Drinking Philosophers Problem*), uma generalização do clássico Problema do Jantar dos Filósofos. O objetivo é simular a coordenação de filósofos em um grafo para acessar garrafas compartilhadas, comparando diferentes algoritmos de sincronização concorrente quanto à eficiência e justiça.
 
 ## O Problema
 
-Em um grafo não direcionado, cada vértice representa um filósofo e cada aresta representa uma garrafa compartilhada entre dois filósofos vizinhos. Cada filósofo precisa:
+Em um grafo não direcionado:
+- **Vértices** → filósofos
+- **Arestas** → garrafas compartilhadas entre dois filósofos vizinhos
 
-1. **Pensar** (estado tranquilo) por um tempo aleatório
-2. **Ficar com sede** e escolher aleatoriamente de 2 até o seu grau de vizinhança garrafas
-3. **Pegar todas as garrafas** escolhidas simultaneamente
+Cada filósofo executa ciclos de:
+1. **Pensar** (estado tranquilo) por tempo aleatório (0 a n segundos, onde n é seu grau)
+2. **Ficar com sede** e escolher aleatoriamente de 2 até n garrafas
+3. **Adquirir todas** as garrafas escolhidas
 4. **Beber** por 1 segundo
-5. Repetir o ciclo por N rodadas
+5. Repetir até completar N rodadas (6 para grafos pequenos, 3 para grafos grandes)
 
-O desafio é garantir que:
-- Não ocorra **deadlock**
-- Não ocorra **starvation** (inanição)
-- O acesso às garrafas seja **justo**
-- O tempo de espera seja **minimizado**
+**Desafios:**
+- Evitar **deadlock** (filósofos travados indefinidamente)
+- Evitar **starvation** (filósofos que nunca conseguem beber)
+- Garantir **justiça** no acesso às garrafas
+- Minimizar **tempo de espera**
 
 ## Estrutura do Projeto
 
@@ -117,10 +120,25 @@ Trabalho-Final-PCP/
 - Justo probabilisticamente
 
 **Desvantagens:**
-- Não garante ausência de starvation (embora seja raro)
 - Tempo de espera imprevisível
 - Pode ter alto overhead em situações de contenção
 
+## Métricas de Avaliação
+
+### Índice de Jain (Jain's Fairness Index)
+Mede a equidade na distribuição dos tempos de espera.
+J = (Σ x_i)² / (n * Σ x_i²)
+
+
+- **J = 1.0** → Perfeitamente justo (todos esperaram o mesmo tempo)
+- **J próximo de 1.0** → Alta justiça
+- **J próximo de 0** → Baixa justiça (starvation)
+
+### Coeficiente de Variação (CV)
+Mede a dispersão relativa dos tempos de espera.
+CV = (Desvio Padrão / Média) × 100%
+- **CV < 30%** → Baixa dispersão (tempos equilibrados)
+- **CV > 70%** → Alta dispersão (baixa equidade)
 ## Como Executar
 
 ### Pré-requisitos
@@ -179,6 +197,38 @@ Filósofo 0 começou a beber (esperou 0.00s)
 ...
 ```
 
+Exemplo de saída no arquivo:
+
+
+============================================================
+ARQUIVO: arquivo_caso1.txt | VÉRTICES: 5 | RODADAS: 6
+============================================================
+
+SOLUÇÃO: Chandy-Misra
+------------------------------------------------------------
+Tempo total de execução: 17.29 segundos
+Média de espera geral: 0.65s
+
+Detalhes por filósofo:
+------------------------------------------------------------
+Filósofo 0 (grau 2):
+  Rodadas: 6
+  Tempo tranquilo: 8.32s
+  Tempo com sede (espera): 2.49s
+  Tempo bebendo: 6.00s
+  Tempo médio de espera: 0.41s
+...
+
+============================================================
+RESUMO COMPARATIVO
+============================================================
+Solução              Tempo Total     Espera Média    Jain       CV(%)
+--------------------------------------------------------------------------------
+Numeração            18.49           0.70            0.884      36.2
+Árbitro              16.24           0.51            0.934      26.6
+Chandy-Misra         17.29           0.65            0.968      18.0
+Aleatoriedade        22.93           1.29            0.958      20.9
+
 ## Resultados e Métricas
 
 Cada solução é avaliada por:
@@ -209,31 +259,13 @@ Cada solução é avaliada por:
 
 | Solução | Complexidade | Garantia de Ausência de Deadlock | Overhead | Justiça |
 |---------|-------------|----------------------------------|----------|---------|
-| Numeração | O(E log E) | Sim | Baixo | Baixa |
-| Árbitro | O(1) |  Sim | Médio | Média |
-| Chandy-Misra | O(E) |  Sim | Alto | Alta |
-| Aleatoriedade | O(1) |  Não* | Baixo | Alta |
+| Numeração | O(E log E) | Evita | Baixo | Moderada |
+| Árbitro | O(1) |  Evita | Médio | Alta |
+| Chandy-Misra | O(E) |  Evita | Alto | Muito Alta |
+| Aleatoriedade | O(1) |  Pratico* | Baixo | Alta |
 
 *Na prática, starvation é extremamente raro devido ao backoff exponencial.
 
-## Conceitos Teóricos
-
-### Deadlock
-Ocorre quando dois ou mais filósofos ficam bloqueados indefinidamente, cada um esperando por uma garrafa que está com outro filósofo.
-
-**Condições de Coffman (todas devem ser evitadas):**
-1. Exclusão mútua
-2. Posse e espera
-3. Não preempção
-4. Espera circular
-
-### Starvation (Inanição)
-Ocorre quando um filósofo nunca consegue beber, apesar de não estar em deadlock.
-
-### Sincronização com Threads
-- **Locks (threading.Lock):** Garantem exclusão mútua
-- **Semáforos (threading.Semaphore):** Controlam acesso a recursos limitados
-- **Threads Daemon:** Encerram automaticamente quando o programa principal termina
 
 ## Trabalho Acadêmico
 
